@@ -35,10 +35,10 @@ Finding affordable off-campus housing can be challenging. Advertised rent may no
 - AI / other statistical techniques for rent prediction feature
 Technology choices will be updated as development progresses.
 ## Project Status
-- 10/25: Completed initial proposal + wireframes, GitHub repository launched.
-- 10/28: Discussed split of responsibility. Plans: Django development, database functionality, AI integration, and testing will be implemented (draft-level)
+- 10/25: Completed initial proposal + wireframes. Created GitHub repository.
+- 10/28: Discussed team responsibilities and plans for Django development, database functionality, AI integration, and testing.
 ## Setup Instructions / How to Run Locally
-IP
+Local setup instructions will be added once the Django project and its dependencies are ready to run.
 ## Disclaimer
-Future rent & utility values are estimates. May differ from actual housing costs. This application is a reference, not an exact truth.
+Future rent & utility values are estimates. May differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
 
