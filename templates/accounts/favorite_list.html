@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+
+{% block title %}My Favorites | Illini Rent Radar{% endblock %}
+
+{% block content %}
+
+<h2>My Favorite Apartments</h2>
+
+{% for favorite in favorites %}
+    <div>
+        <h3>{{ favorite.apartment.name }}</h3>
+
+        <p>Address: {{ favorite.apartment.street_address }}</p>
+        <p>Location: {{ favorite.apartment.location }}</p>
+
+        <a href="{% url 'apartment_detail' favorite.apartment.id %}">
+            View Apartment Details
+        </a>
+    </div>
+
+    <hr>
+
+{% empty %}
+    <p>You haven't saved any favorite apartments yet.</p>
+{% endfor %}
+
+{% endblock %}

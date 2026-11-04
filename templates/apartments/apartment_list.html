@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block title %}Apartment Listings | Illini Rent Radar{% endblock %}
+
+{% block content %}
+
+<h2>Apartment Listings</h2>
+
+{% for apartment in apartments %}
+    <div>
+        <h3>{{ apartment.name }}</h3>
+
+        <p>Address: {{ apartment.street_address }}</p>
+        <p>City: {{ apartment.city }}</p>
+        <p>Location: {{ apartment.location }}</p>
+
+        <a href="{% url 'apartment_detail' apartment.id %}">
+            View Apartment Details
+        </a>
+    </div>
+
+    <hr>
+
+{% empty %}
+    <p>No apartments have been added yet.</p>
+{% endfor %}
+
+{% endblock %}

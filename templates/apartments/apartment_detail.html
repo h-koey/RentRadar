@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ apartment.name }} | Illini Rent Radar{% endblock %}
+
+{% block content %}
+
+<h2>{{ apartment.name }}</h2>
+
+<h3>Apartment Information</h3>
+<p>Address: {{ apartment.street_address }}</p>
+<p>City: {{ apartment.city }}</p>
+<p>Location: {{ apartment.location }}</p>
+
+<hr>
+
+<h3>Lease History</h3>
+
+{% for lease in lease_records %}
+    <div>
+        <h4>Unit {{ lease.unit_number }}</h4>
+        <p>Lease Year: {{ lease.lease_year }}</p>
+        <p>Bedrooms: {{ lease.bedrooms }}</p>
+        <p>Bathrooms: {{ lease.bathrooms }}</p>
+        <p>Monthly Rent: ${{ lease.monthly_rent }}</p>
+        <p>Lease Term: {{ lease.lease_term_months }} months</p>
+
+        <h4>Additional Costs</h4>
+
+        {% for cost in lease.costs.all %}
+            <p>
+                {{ cost.name }}: ${{ cost.amount }}
+                ({{ cost.frequency }})
+            </p>
+        {% empty %}
+            <p>No additional costs listed.</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+{% empty %}
+    <p>No lease records available.</p>
+{% endfor %}
+
+<h3>Rent Predictions</h3>
+
+{% for prediction in predictions %}
+    <p>Year: {{ prediction.target_year }}</p>
+    <p>Estimated Monthly Rent: ${{ prediction.estimated_monthly_rent }}</p>
+    <p>Estimated Monthly Utilities: ${{ prediction.estimated_monthly_utilities|default:"Not available" }}</p>
+    <hr>
+{% empty %}
+    <p>No rent predictions available.</p>
+{% endfor %}
+
+{% endblock %}
