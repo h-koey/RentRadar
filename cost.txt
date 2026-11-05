@@ -1,0 +1,49 @@
+Part 5: Deployment, Cost, and Production Readiness
+
+5.1 Deployment: Our group has selected PythonAnywhere to host Illini Rent Radar.
+
+5.2 Infrastructure Requirements:
+
+    - We would likely have to change the ollama model to a more lightweight model.
+    It is important to acknowledge that the average user of this site might have an
+    older laptop or phone. In this case, they would lack the RAM. As a result, we should
+    aim for smaller model or utilize a self-hosted model. In the future, we can test out
+    which models perform the best and compare their computational cost. The AI infrastructure
+    should cater to the average student, thus, we'd likely sacrifice some degree of accuracy
+    for speed.
+
+    -The bulk of our app is individual apartment listings. We want to be very intentional
+    with what we include with the goal of limiting storage. The main goal is to ensure the
+    prediction feature and apartment analytics don't suffocate the project.
+
+    - For this project, we are going to stick with sqlite3 because it is the free option.
+    If Illini Rent Radar gains a significant user base, we would likely upgrade our hosting
+    software subscription and incorporate Postgres. Sqlite3's limited writing and scalability
+    would become a problem if we have over 10 thousand users.
+
+5.3: Cost Comparison
+
+
+
+5.4: Scalability:
+    1. At 10,000 users, we would start to consider upgrading our deployment subscription. A userbase
+    this large would start to expose the limitations of sqlite3. If we continue to see growth, we would
+    look into different DBMSs like Postgres. With our current architecture, the prediction and analytic features
+    would likely be the cause of bottlenecking. If ~10,000 users are making requests to the Ollama api, it'll
+    result in high costs and incredibly poor performance.
+
+    2. Hundreds of requests to the LLM at once has the potential to bottleneck our app with the current infrastructure.
+    In addition, we need to be cautious of the pages where we display analytics. Having a live analytical look on most
+    of our app's pages will quickly cause a bottleneck if there are thousands of concurrent users.
+
+    3.
+
+    4. To maintain application performance, we could develop a meaningful dashboard in our admin page.
+    With this dashboard, we could monitor the amount of calls, monthly users, and trends in data. Furthermore,
+    we can use django logging to catch errors early.
+
+    5. Upgrading to a stronger DBMS (sqlite3 --> Postgres). In the future, our app can also utilize vertical or
+    horizontal scaling to reduce costs. Horizontal scaling would probably be the most effective because we could easily
+    adjust our architecture for spikes and drops. Due to the nature of our app, we will see spikes during "peak apartment search time."
+    Having an adaptable architecture would be an effective way to cut cost.
+
