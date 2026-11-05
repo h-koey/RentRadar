@@ -1,0 +1,152 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ apartment.name }} | Illini Rent Radar{% endblock %}
+
+{% block content %}
+
+<h2>{{ apartment.name }}</h2>
+
+<h3>Apartment Information</h3>
+<p>Address: {{ apartment.street_address }}</p>
+<p>City: {{ apartment.city }}</p>
+<p>ZIP code: {{ apartment.zip_code }}</p>
+<p>Average rating: {{ apartment.average_rating }} / 5</p>
+<p>Rent controlled: {{ apartment.rent_controlled|yesno:"Yes,No" }}</p>
+
+<section id="ai-rating">
+    <h3>AI apartment fit</h3>
+    {% if has_rating_preferences %}
+        <form id="ai-rating-form" method="post" action="{% url 'apartment_rating' apartment.id %}">
+            {% csrf_token %}
+            <label for="ai-context">Anything else you'd like the rating to consider? (optional)</label>
+            <textarea id="ai-context" name="context" maxlength="500" rows="3"></textarea>
+            <button type="submit">Get AI rating</button>
+        </form>
+        <div id="ai-rating-result" aria-live="polite"></div>
+        <script>
+            document.getElementById("ai-rating-form").addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const result = document.getElementById("ai-rating-result");
+                result.textContent = "Generating rating...";
+                try {
+                    const response = await fetch(event.currentTarget.action, {
+                        method: "POST",
+                        body: new FormData(event.currentTarget),
+                        headers: {"X-Requested-With": "XMLHttpRequest"}
+                    });
+                    const data = await response.json();
+                    if (!response.ok) {
+                        throw new Error(data.error || "Unable to generate a rating.");
+                    }
+                    const heading = document.createElement("h4");
+                    heading.textContent = `Fit rating: ${data.rating}/5`;
+                    const summary = document.createElement("p");
+                    summary.textContent = data.summary;
+                    result.replaceChildren(heading, summary);
+                    for (const room of data.rooms) {
+                        const detail = document.createElement("p");
+                        detail.textContent = `Room ${room.unit_number}: ${room.rating}/5 — ${room.reason}`;
+                        result.append(detail);
+                    }
+                } catch (error) {
+                    result.textContent = error.message;
+                }
+            });
+        </script>
+    {% else %}
+        {% if request.user.is_authenticated %}
+            <p>Set your budget and rent-control preference to get a personalized rating.</p>
+            <form action="{% url 'profile' %}" method="get">
+                <button type="submit">Set apartment preferences</button>
+            </form>
+        {% else %}
+            <p>Log in and set your apartment preferences to get a personalized rating.</p>
+            <form action="{% url 'login' %}" method="get">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit">Log in to set preferences</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</section>
+
+<hr>
+
+<h3>Rooms</h3>
+{% for room in rooms %}
+    <div>
+        <h4>Room {{ room.unit_number }}</h4>
+        <p>Bedrooms: {{ room.bedroom_count }}</p>
+        <p>Bathrooms: {{ room.bathroom_count }}</p>
+        <p>Square footage: {{ room.square_footage }}</p>
+        <p>Monthly rent: ${{ room.current_monthly_rent }}</p>
+        <p>Occupants: {{ room.current_occupants }} / {{ room.max_occupancy }}</p>
+        <h5>Rent history (past year)</h5>
+        {% for price in room.recent_price_history %}
+            <p>{{ price.effective_date }}: ${{ price.monthly_rent }}</p>
+        {% empty %}
+            <p>No rent history listed.</p>
+        {% endfor %}
+    </div>
+{% empty %}
+    <p>No rooms listed.</p>
+{% endfor %}
+
+<hr>
+
+<h3>Lease History</h3>
+
+{% for lease in lease_records %}
+    <div>
+        <h4>Unit {{ lease.unit_number }}</h4>
+        <p>Lease Year: {{ lease.lease_year }}</p>
+        <p>Bedrooms: {{ lease.bedrooms }}</p>
+        <p>Bathrooms: {{ lease.bathrooms }}</p>
+        <p>Monthly Rent: ${{ lease.monthly_rent }}</p>
+        <p>Lease Term: {{ lease.lease_term_months }} months</p>
+
+        <h4>Additional Costs</h4>
+
+        {% for cost in lease.apartmentcost_set.all %}
+            <p>
+                {{ cost.name }}: ${{ cost.amount }}
+                ({{ cost.frequency }})
+            </p>
+        {% empty %}
+            <p>No additional costs listed.</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+{% empty %}
+    <p>No lease records available.</p>
+{% endfor %}
+
+<h3>Rent Predictions</h3>
+
+{% for prediction in predictions %}
+    <p>Year: {{ prediction.target_year }}</p>
+    <p>Estimated Monthly Rent: ${{ prediction.estimated_monthly_rent }}</p>
+    <p>Estimated Monthly Utilities: ${{ prediction.estimated_monthly_utilities|default:"Not available" }}</p>
+    <hr>
+{% empty %}
+    <p>No rent predictions available.</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <section>
+        <h3>AI apartment fit</h3>
+        {% if has_rating_preferences %}
+            <form method="post" action="{% url 'apartment_rating' apartment.id %}">
+                {% csrf_token %}
+                <label for="ai-context">Additional context (optional)</label>
+                <textarea id="ai-context" name="context" maxlength="500"></textarea>
+                <button type="submit">Get AI rating</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'profile' %}">Add your budget and rent-control preference</a> to request a rating.</p>
+        {% endif %}
+    </section>
+{% endif %}
+{% endblock %}

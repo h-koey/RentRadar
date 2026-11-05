@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Illini Rent Radar{% endblock %}
+
+{% block content %}
+<h2>Find housing that fits your budget</h2>
+<p>Compare apartment details, room prices, and rent history around Champaign-Urbana.</p>
+<p><a href="{% url 'apartment_list' %}">Browse apartments</a></p>
+{% endblock %}

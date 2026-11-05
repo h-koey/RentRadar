@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9e4a3bc6-76ef-4d27-ba32-434a41d31cc0" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NickIllini&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/h-koey/RentRadar&quot;,
+    &quot;accountId&quot;: &quot;079d0933-0df8-47a7-9a70-9e23619d2e5d&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.7341185065909683" />
+      <entry key="MS500" value="4.1930002567910005" />
+      <entry key="S2" value="8.508704346176248" />
+      <entry key="S5" value="10.3814295935667" />
+      <entry key="S10" value="11.147762235079606" />
+      <entry key="S30" value="11.777721454003728" />
+      <entry key="S60" value="13.134699644760243" />
+      <entry key="M2" value="26.900565534942313" />
+      <entry key="M5" value="95.11931980605503" />
+      <entry key="M10" value="176.32399404171923" />
+      <entry key="M15" value="237.00780663733704" />
+      <entry key="M30" value="386.59564538498876" />
+      <entry key="H1" value="575.5489027946644" />
+      <entry key="H2" value="744.6572618871874" />
+      <entry key="H4" value="895.332937476888" />
+      <entry key="D1" value="1322.1495397904498" />
+      <entry key="W1" value="1501.837072465949" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.6486557890622706" />
+      <entry key="MS500" value="4.1506888979706895" />
+      <entry key="S2" value="8.486277934554503" />
+      <entry key="S5" value="10.370421974857669" />
+      <entry key="S10" value="11.141844202542421" />
+      <entry key="S30" value="11.775635686212441" />
+      <entry key="S60" value="13.133566451467818" />
+      <entry key="M2" value="26.89958929183074" />
+      <entry key="M5" value="95.11812378906797" />
+      <entry key="M10" value="176.3229164719398" />
+      <entry key="M15" value="237.00684739069604" />
+      <entry key="M30" value="386.5948613072734" />
+      <entry key="H1" value="575.5483129338346" />
+      <entry key="H2" value="744.6568759524806" />
+      <entry key="H4" value="895.3326970246342" />
+      <entry key="D1" value="1322.1494692418119" />
+      <entry key="W1" value="1501.8370603553872" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LfbgIxtqEjetR1EX5kZlr76TNr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/aylla/RentRadar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aylla\RentRadar" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e4a3bc6-76ef-4d27-ba32-434a41d31cc0" name="Changes" comment="" />
+      <created>1793848178908</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793848178908</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
