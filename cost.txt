@@ -51,7 +51,9 @@ concerns with data. It would be smart to inform our users of where this data is 
     In addition, we need to be cautious of the pages where we display analytics. Having a live analytical look on most
     of our app's pages will quickly cause a bottleneck if there are thousands of concurrent users.
 
-    3.
+    3. Generally, more users (especially 10,000+) will lead to higher costs. If our site reached this userbase, we would
+    likely have to alternate to a hosted api with careful rate limiting. Our local machines lack the computational power
+    to self-host for thousands of daily requests.
 
     4. To maintain application performance, we could develop a meaningful dashboard in our admin page.
     With this dashboard, we could monitor the amount of calls, monthly users, and trends in data. Furthermore,
