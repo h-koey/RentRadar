@@ -7,7 +7,10 @@ Make more informed housing decisions by comparing historical apartment rents, es
 **Project:** Illini Rent Radar  
 **Team:** 20
 
-[![Python](https://img.shields.io/badge/Python-324841?logo=python&logoColor=white)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-324841?logo=django&logoColor=white)](https://www.djangoproject.com/) [![AI](https://img.shields.io/badge/AI-In%20Development-ADC2AF)](#features)
+[![Python](https://img.shields.io/badge/Python-324841?logo=python&logoColor=white)](https://www.python.org/) 
+[![Django](https://img.shields.io/badge/Django-324841?logo=django&logoColor=white)](https://www.djangoproject.com/) 
+[![AI](https://img.shields.io/badge/AI-In%20Development-ADC2AF)](#features)
+![License](https://img.shields.io/badge/License-Apache%202.0-9C95C9)
 
 [Quick Guide](#quick-guide) | [Planned Features](#planned-features) | [Run the App](#run-the-app) | [Project Status](#project-status) | [Team](#team)
 
@@ -168,3 +171,7 @@ Additional documentation will be added as development progresses.
 ## Disclaimer
 
 Future rent and utility values are estimates and may differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
+
+## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
