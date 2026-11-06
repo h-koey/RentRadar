@@ -1,44 +1,170 @@
-# 20-rentradar
+# Illini Rent Radar: Are You Paying Too Much?
 
-## Updating the Django secret key
+### A smarter way for University of Illinois students to compare off-campus housing costs
 
-1. Copy `.env.example` to `.env` in the project folder (the same folder as `manage.py`).
-2. Generate a new key with:
+Make more informed housing decisions by comparing historical apartment rents, estimating additional expenses, and exploring future rental trends.
 
-   ```sh
-   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-   ```
+**Project:** Illini Rent Radar  
+**Team:** 20
 
-3. Put the generated value after `DJANGO_SECRET_KEY=` in `.env`.
-4. Keep `.env` private. It is ignored by Git, so don't add it to a commit.
-___________________________________________________________________________________________________________
-___________________________________________________________________________________________________________
-# Illini Rent Radar
-- Project: `Illini Rent Radar` 
-- Team: 20
-- Members: Koey Huang*, Marley Karsen*, Nick Rondon*, Henry Rotunno*
+[![Python](https://img.shields.io/badge/Python-324841?logo=python&logoColor=white)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-324841?logo=django&logoColor=white)](https://www.djangoproject.com/) [![AI](https://img.shields.io/badge/AI-In%20Development-ADC2AF)](#features)
+
+[Quick Guide](#quick-guide) | [Planned Features](#planned-features) | [Run the App](#run-the-app) | [Project Status](#project-status) | [Team](#team)
+
+---
+
+## Quick Guide
+
+1. **Explore the project:** Learn about our goals and planned features below.
+2. **Run the application:** Follow the [Run the App](#run-the-app) instructions.
+3. **Learn about the AI feature:** See the AI documentation once available.
 
 ## Overview
-Illini Rent Radar is a web application designed to help University of Illinois Urbana-Champaign students and Urbana-Champaign community members make informed off-campus housing decisions. 
-This application aims to help users compare historical prices, understand additional housing costs & fees, and project future rent and utility costs.
-## Problem
-Finding affordable off-campus housing can be challenging. Advertised rent may not include additional expenses such as utilities, parking, application fees, and amenity fees; this makes it difficult to budget accordingly. Illini Rent Radar aims to help users understand these costs and compare apartments in a more effective manner.
-## Planned Core Features
-1. **Lease Search:** Search historical apartment lease information. Use filters like price, bedroom & bathroom count, and lease year for specific detailing.
-2. **Total Cost Calculator:** Combines rent, estimated utilities, and other fees (can freely customize) to calculate (generally) monthly and yearly housing costs.
-3. **Rent Trends & Predictions:** Visualize historical rent changes. Explore estimated future rent costs.
-## Technology
-- Python
-- Django
-- Database & Django ORM
-- HTML & CSS
-- AI / other statistical techniques for rent prediction feature
-Technology choices will be updated as development progresses.
-## Project Status
-- 10/25: Completed initial proposal + wireframes. Created GitHub repository.
-- 10/28: Discussed team responsibilities and plans for Django development, database functionality, AI integration, and testing.
-## Setup Instructions / How to Run Locally
-Local setup instructions will be added once the Django project and its dependencies are ready to run.
-## Disclaimer
-Future rent & utility values are estimates. May differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
 
+Illini Rent Radar is a web application designed to help University of Illinois Urbana-Champaign students and Champaign-Urbana community members make informed off-campus housing decisions.
+
+The application aims to help users compare historical rental prices, understand additional housing costs and fees, and estimate future rent and utility expenses.
+
+## The Problem
+
+Finding affordable off-campus housing can be challenging. Advertised rent may not include additional expenses such as utilities, parking, application fees, and amenity fees. These extra costs make it difficult for renters to compare apartments and plan their budgets accurately.
+
+Illini Rent Radar aims to make these expenses easier to understand and housing options easier to compare.
+
+## Planned Features
+
+The following features are planned and currently under development.
+
+### 🏠 Apartment Lease Search
+
+- Search historical apartment lease information.
+- Filter by location, price, bedroom and bathroom count, and lease year.
+- Compare rental information to make more informed housing decisions.
+
+### 💰 Total Housing Cost Calculator
+
+- Combine rent, estimated utilities, and additional fees.
+- Customize expenses to reflect individual housing situations.
+- Calculate estimated monthly and yearly housing costs.
+
+### 🤖 Rent Trends and Predictions
+
+- Visualize historical rental price changes.
+- Explore estimated future rent costs.
+- Use historical rental information and AI or statistical techniques to support rent predictions.
+
+## Technology
+
+- **Python:** Primary programming language.
+- **Django:** Web application framework.
+- **SQLite:** Database currently used for storing application data.
+- **Django ORM:** Manages database models and queries.
+- **HTML and CSS:** User interface and styling.
+- **AI / Statistical Techniques:** Being explored for rent prediction and trend analysis.
+
+Technology choices may be updated as development progresses.
+
+## Run the App
+
+### 1. Clone the repository
+
+```sh
+git clone https://github.com/h-koey/RentRadar.git
+cd RentRadar
+```
+
+### 2. Create and activate a virtual environment
+
+```sh
+python -m venv .venv
+```
+
+**Mac/Linux:**
+
+```sh
+source .venv/bin/activate
+```
+
+**Windows:**
+
+```sh
+.venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```sh
+pip install -r requirements.txt
+```
+
+### 4. Configure the Django secret key
+
+1. Copy `.env.example` to `.env` in the project folder (the same folder as `manage.py`).
+2. Generate a new key:
+
+```sh
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+3. Put the generated value after `DJANGO_SECRET_KEY=` in `.env`.
+4. Keep `.env` private. It is ignored by Git and should never be committed.
+
+### 5. Run database migrations
+
+```sh
+python manage.py migrate
+```
+
+### 6. Start the development server
+
+```sh
+python manage.py runserver
+```
+
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
+
+*Note: Setup instructions should be verified against the team's current Django configuration.*
+
+## Project Status
+
+The project is currently in its initial development stage. The team is working on the Django application foundation, database functionality, AI implementation, testing, and deployment planning.
+
+### Development Progress
+
+- **10/25:** Completed initial project proposal and wireframes. Created GitHub repository.
+- **10/28:** Established team responsibilities and organized the initial README structure.
+- **11/04:** Created initial Django models, views, URLs, and templates; pushed changes to GitHub.
+- **11/05:** Set up the SQLite database.
+- **11/06:** Began evaluating AI models and testing metrics. Started deployment cost analysis and planning.
+
+### Currently In Progress
+
+- Completing Django application functionality and authorization.
+- Developing database and API functionality.
+- Evaluating models for the rent prediction feature.
+- Testing model performance and response quality.
+- Planning deployment, hosting costs, and production requirements.
+- Updating project documentation and setup instructions.
+
+The application and its planned features are still under development.
+
+## Project Documentation
+
+Additional documentation will be added as development progresses.
+
+| Document | Description |
+|---|---|
+| `README_AI.md` | AI implementation, model/technique, predictions, and evaluation |
+| `docs/project_scope.md` | Updated project scope and planned features |
+| `docs/development_roadmap.md` | Development tasks, team responsibilities, and expected completion dates |
+| `docs/testing_and_evaluation.md` | Testing results, limitations, and improvements |
+
+## Team
+
+**Team 20** — University of Illinois Urbana-Champaign
+
+*Members: Koey Huang, Marley Karsen, Nick Rondon, Henry Rotunno*
+
+## Disclaimer
+
+Future rent and utility values are estimates and may differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
