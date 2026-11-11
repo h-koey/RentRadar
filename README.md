@@ -110,33 +110,24 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 ```
 
 3. Put the generated value after `DJANGO_SECRET_KEY=` in `.env`.
-4. Keep `.env` private. It is ignored by Git, so don't add it to a commit.
-___________________________________________________________________________________________________________
-___________________________________________________________________________________________________________
-# Illini Rent Radar
-- Project: `Illini Rent Radar` 
-- Team: 20
-- Members: Koey Huang*, Marley Karsen*, Nick Rondon*, Henry Rotunno*
+4. Keep `.env` private. It is ignored by Git and should never be committed.
 
-## Overview
-Illini Rent Radar is a web application designed to help University of Illinois Urbana-Champaign students and Urbana-Champaign community members make informed off-campus housing decisions. 
-This application aims to help users compare historical prices, understand additional housing costs & fees, and project future rent and utility costs.
-## Problem
-Finding affordable off-campus housing can be challenging. Advertised rent may not include additional expenses such as utilities, parking, application fees, and amenity fees; this makes it difficult to budget accordingly. Illini Rent Radar aims to help users understand these costs and compare apartments in a more effective manner.
-## Planned Core Features
-1. **Lease Search:** Search historical apartment lease information. Use filters like price, bedroom & bathroom count, and lease year for specific detailing.
-2. **Total Cost Calculator:** Combines rent, estimated utilities, and other fees (can freely customize) to calculate (generally) monthly and yearly housing costs.
-3. **Rent Trends & Predictions:** Visualize historical rent changes. Explore estimated future rent costs.
-## Technology
-- Python
-- Django
-- Database & Django ORM
-- HTML & CSS
-- AI / other statistical techniques for rent prediction feature
-Technology choices will be updated as development progresses.
-## Project Status
-- 10/25: Completed initial proposal + wireframes. Created GitHub repository.
-- 10/28: Discussed team responsibilities and plans for Django development, database functionality, AI integration, and testing.
+### 5. Run database migrations
+
+```sh
+python manage.py migrate
+```
+
+### 6. Start the development server
+
+```sh
+python manage.py runserver
+```
+
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
+
+*Note: Setup instructions should be verified against the team's current Django configuration.*
+
 ## Apartment listings
 
 The apartment listing page is available at `/apartments/`. A JSON read API is
@@ -181,5 +172,51 @@ preferences are missing, the page links to the profile form instead.
 Users can create an account at `/accounts/register/` with a username and password.
 Registration also accepts an optional email address and signs the user in after
 the account is created.
+
+## Project Status
+
+The project is currently in its initial development stage. The team is working on the Django application foundation, database functionality, AI implementation, testing, and deployment planning.
+
+### Development Progress
+
+- **10/25:** Completed initial project proposal and wireframes. Created GitHub repository.
+- **10/28:** Established team responsibilities and organized the initial README structure.
+- **11/04:** Created initial Django models, views, URLs, and templates; pushed changes to GitHub.
+- **11/05:** Set up the SQLite database.
+- **11/06:** Began evaluating AI models and testing metrics. Started deployment cost analysis and planning.
+
+### Currently In Progress
+
+- Completing Django application functionality and authorization.
+- Developing database and API functionality.
+- Evaluating models for the rent prediction feature.
+- Testing model performance and response quality.
+- Planning deployment, hosting costs, and production requirements.
+- Updating project documentation and setup instructions.
+
+The application and its planned features are still under development.
+
+## Project Documentation
+
+Additional documentation will be added as development progresses.
+
+| Document | Description |
+|---|---|
+| `README_AI.md` | AI implementation, model/technique, predictions, and evaluation |
+| `docs/project_scope.md` | Updated project scope and planned features |
+| `docs/development_roadmap.md` | Development tasks, team responsibilities, and expected completion dates |
+| `docs/testing_and_evaluation.md` | Testing results, limitations, and improvements |
+
+## Team
+
+**Team 20** — University of Illinois Urbana-Champaign
+
+*Members: Koey Huang, Marley Karsen, Nick Rondon, Henry Rotunno*
+
 ## Disclaimer
-Future rent & utility values are estimates. May differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
+
+Future rent and utility values are estimates and may differ from actual housing costs. This application is intended as a reference to support housing decisions, not as a guarantee of exact costs.
+
+## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
