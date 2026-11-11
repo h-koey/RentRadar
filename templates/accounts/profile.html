@@ -1,24 +1,12 @@
-
 {% extends "base.html" %}
 
 {% block title %}My Profile | Illini Rent Radar{% endblock %}
 
 {% block content %}
-
 <h2>My Profile</h2>
-
-<p>Username: {{ request.user.username }}</p>
-<p>Email: {{ request.user.email }}</p>
-
-<h3>Apartment Preferences</h3>
-
-{% if preference %}
-    <p>Maximum Budget: ${{ preference.max_budget }}</p>
-    <p>Minimum Bedrooms: {{ preference.min_bedrooms }}</p>
-    <p>Minimum Bathrooms: {{ preference.min_bathrooms }}</p>
-    <p>Preferred Location: {{ preference.preferred_location }}</p>
-{% else %}
-    <p>You have not set your apartment preferences yet.</p>
-{% endif %}
-
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save preferences</button>
+</form>
 {% endblock %}
