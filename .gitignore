@@ -221,3 +221,10 @@ __marimo__/
 
 #json
 client_secret_575628722990-ssojscbocc336e39qo328tl5rhv01e70.apps.googleusercontent.com.json
+
+# PyCharm local files
+.idea/shelf/
+.idea/workspace.xml
+
+# Google OAuth credentials
+client_secret_*.json
