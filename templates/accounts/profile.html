@@ -1,12 +1,29 @@
-{% extends "base.html" %}
+<style>
+    .pref {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 
+    .pref form {
+        width: 100%;
+        max-width: 400px;
+    }
+</style>
+
+{% extends "base.html" %}
 {% block title %}My Profile | Illini Rent Radar{% endblock %}
 
 {% block content %}
-<h2>My Profile</h2>
-<form method="post">
+<h2 style="text-align: center;">My Profile</h2>
+
+  <div class="pref">
+    <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save preferences</button>
 </form>
+    </div>
 {% endblock %}
