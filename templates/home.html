@@ -1,9 +1,49 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #13294B;
+    color: #FF5F05;
+    border-radius: 6px;
+    font-weight: 600;
+
+    text-decoration:none;
+}
+
+.button__icon {
+    display: flex;
+    font-size: 1.2rem;
+}
+.ultimate  {
+    text-align:center;
+}
+</style>
+
+
+
 {% extends "base.html" %}
+
 
 {% block title %}Illini Rent Radar{% endblock %}
 
+
+
 {% block content %}
-<h2>Find housing that fits your budget</h2>
-<p>Compare apartment details, room prices, and rent history around Champaign-Urbana.</p>
-<p><a href="{% url 'apartment_list' %}">Browse apartments</a></p>
+<h2 style="text-align:center; padding-top:15px;">Find housing that fits your budget</h2>
+<p style="text-align:center;">Compare apartment details, room prices, and rent history around Champaign-Urbana.</p>
+
+    <div class="ultimate">
+    <a href="{% url 'apartment_list' %}" class="button">
+    <span class="button__text">Browse Apartments</span>
+    <span class="button__icon">
+        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+    </span>
+</a>
+    </div>
+
 {% endblock %}
