@@ -32,6 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = []
 
 
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +44,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'apartments.apps.ApartmentsConfig',
+
+    # Google authentication inclusions
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +67,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
+    'allauth.account.middleware.AccountMiddleware',    # New Changes/Addition
 ]
 
 ROOT_URLCONF = 'rentradar.urls'
@@ -124,7 +141,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
+STATICFILES_DIRS = [BASE_DIR / "rentradar" / "ui-ux" / "static"]
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
@@ -133,3 +150,9 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+
+
+# Google Auth
+SOCIALACCOUNT_LOGIN_ON_GET = True

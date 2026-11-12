@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<h2>Apartment Listings</h2>
+<h2 style="text-align: center;">Apartment Listings</h2>
 
 {% for apartment in apartments %}
     <div>
@@ -25,7 +25,7 @@
     <hr>
 
 {% empty %}
-    <p>No apartments have been added yet.</p>
+    <p style="text-align: center;">No apartments have been added yet.</p>
 {% endfor %}
 
 {% endblock %}
