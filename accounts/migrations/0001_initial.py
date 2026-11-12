@@ -18,61 +18,24 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="UserPreferences",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("budget", models.DecimalField(decimal_places=2, max_digits=8)),
                 ("min_bedrooms", models.PositiveIntegerField()),
                 ("min_bathrooms", models.PositiveIntegerField()),
                 ("preferred_location", models.CharField(max_length=50)),
-                (
-                    "user",
-                    models.OneToOneField(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.AUTH_USER_MODEL,
-                    ),
-                ),
+                ("user", models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name="Favorite",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                (
-                    "apartment",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="apartments.apartment",
-                    ),
-                ),
-                (
-                    "user",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.AUTH_USER_MODEL,
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("apartment", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="apartments.apartment")),
+                ("user", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 "constraints": [
-                    models.UniqueConstraint(
-                        fields=("user", "apartment"),
-                        name="unique_user_apartment_favorite",
-                    )
+                    models.UniqueConstraint(fields=("user", "apartment"), name="unique_user_apartment_favorite")
                 ],
             },
         ),

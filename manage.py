@@ -3,9 +3,12 @@
 import os
 import sys
 
+from rentradar.local_model import start_local_ollama_for_runserver
+
 
 def main():
     """Run administrative tasks."""
+    start_local_ollama_for_runserver(sys.argv)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rentradar.settings.development')
     try:
         from django.core.management import execute_from_command_line

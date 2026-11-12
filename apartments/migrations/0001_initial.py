@@ -14,15 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Apartment",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("name", models.CharField(max_length=100)),
                 ("street_address", models.CharField(max_length=200)),
                 ("city", models.CharField(max_length=50)),
@@ -32,111 +24,37 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="LeaseRecord",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("unit_number", models.CharField(max_length=20)),
                 ("lease_year", models.PositiveIntegerField()),
                 ("bedrooms", models.PositiveIntegerField()),
                 ("bathrooms", models.DecimalField(decimal_places=1, max_digits=3)),
                 ("monthly_rent", models.DecimalField(decimal_places=2, max_digits=8)),
                 ("lease_term_months", models.PositiveIntegerField()),
-                (
-                    "apartment",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="apartments.apartment",
-                    ),
-                ),
+                ("apartment", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="apartments.apartment")),
             ],
         ),
         migrations.CreateModel(
             name="ApartmentCost",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                (
-                    "cost_type",
-                    models.CharField(
-                        choices=[
-                            ("utility", "Utility"),
-                            ("parking", "Parking"),
-                            ("application", "Application"),
-                            ("service", "Service"),
-                            ("other", "Other"),
-                        ],
-                        max_length=20,
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("cost_type", models.CharField(choices=[("utility", "Utility"), ("parking", "Parking"), ("application", "Application"), ("service", "Service"), ("other", "Other")], max_length=20)),
                 ("name", models.CharField(max_length=100)),
                 ("amount", models.DecimalField(decimal_places=2, max_digits=8)),
-                (
-                    "frequency",
-                    models.CharField(
-                        choices=[
-                            ("monthly", "Monthly"),
-                            ("yearly", "Yearly"),
-                            ("one_time", "One Time"),
-                        ],
-                        max_length=20,
-                    ),
-                ),
-                (
-                    "lease_record",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="apartments.leaserecord",
-                    ),
-                ),
+                ("frequency", models.CharField(choices=[("monthly", "Monthly"), ("yearly", "Yearly"), ("one_time", "One Time")], max_length=20)),
+                ("lease_record", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="apartments.leaserecord")),
             ],
         ),
         migrations.CreateModel(
             name="RentPrediction",
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("target_year", models.PositiveIntegerField()),
-                (
-                    "estimated_monthly_rent",
-                    models.DecimalField(decimal_places=2, max_digits=8),
-                ),
-                (
-                    "estimated_monthly_utilities",
-                    models.DecimalField(
-                        blank=True, decimal_places=2, max_digits=8, null=True
-                    ),
-                ),
+                ("estimated_monthly_rent", models.DecimalField(decimal_places=2, max_digits=8)),
+                ("estimated_monthly_utilities", models.DecimalField(blank=True, decimal_places=2, max_digits=8, null=True)),
                 ("date_created", models.DateTimeField(auto_now_add=True)),
-                (
-                    "apartment",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="apartments.apartment",
-                    ),
-                ),
+                ("apartment", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="apartments.apartment")),
             ],
-            options={
-                "ordering": ["target_year"],
-            },
+            options={"ordering": ["target_year"]},
         ),
     ]

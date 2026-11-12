@@ -128,6 +128,51 @@ Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
 
 *Note: Setup instructions should be verified against the team's current Django configuration.*
 
+## Apartment listings
+
+The apartment listing page is available at `/apartments/`. A JSON read API is
+available at `GET /api/apartments/`; it returns apartments, rooms, and each
+room's price history from the past year.
+
+To load two repeatable sample listings with room and rent history data, run:
+
+```sh
+python manage.py seed_demo_listings
+```
+
+In Python code, use `apartments.services.add_apartment(...)` to create an
+apartment together with its first room, or
+`apartments.services.add_room(apartment, ...)` to add a room to an existing
+apartment. `apartment` can be either an `Apartment` instance or its database ID.
+
+## Personalized AI apartment ratings
+
+Install [Ollama](https://ollama.com/download) and download a local model that
+supports JSON output, for example:
+
+```sh
+ollama pull llama3.1
+```
+
+When started with `python manage.py runserver`, the app starts Ollama's local
+server if it is not already running. Ollama must be installed; if its executable
+is not on `PATH` or in a standard install location, set `OLLAMA_EXECUTABLE` in
+the project-root `.env` file to its full path (for example,
+`C:\Users\your-name\AppData\Local\Programs\Ollama\ollama.exe`). If startup fails,
+the web app still starts, but AI ratings remain unavailable until Ollama is
+running. The app connects to `http://localhost:11434/api/chat` by default. Set
+`OLLAMA_BASE_URL` or `OLLAMA_MODEL` in `.env` to use a different local server or
+installed model; the defaults are `http://localhost:11434` and `llama3.1`.
+Users can save their monthly budget and rent-control preference from **My Profile**.
+On an apartment detail page, users with those preferences can request an AI score
+for the apartment and its rooms, with optional additional context. Ratings are
+generated on demand and are not saved to the database. If the required profile
+preferences are missing, the page links to the profile form instead.
+
+Users can create an account at `/accounts/register/` with a username and password.
+Registration also accepts an optional email address and signs the user in after
+the account is created.
+
 ## Project Status
 
 The project is currently in its initial development stage. The team is working on the Django application foundation, database functionality, AI implementation, testing, and deployment planning.

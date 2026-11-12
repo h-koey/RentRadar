@@ -1,45 +1,9 @@
-
 {% extends "base.html" %}
 
-{% block title %}Home | Illini Rent Radar{% endblock %}
+{% block title %}Illini Rent Radar{% endblock %}
 
 {% block content %}
-
-<h2>Find Your Next Apartment. Know What You'll Really Pay.</h2>
-
-<p>
-    Illini Rent Radar helps University of Illinois students
-    explore off-campus apartments, compare rental prices,
-    and understand the true cost of living.
-</p>
-
-<h3>Are You Paying Too Much?</h3>
-
-<p>
-    Explore historical rent prices, compare additional expenses,
-    and view estimated future rental costs before choosing your
-    next apartment.
-</p>
-
-<a href="{% url 'apartment_list' %}">
-    Explore Apartments
-</a>
-
-<h3>What You Can Do</h3>
-
-<div>
-    <h4>Compare Apartments</h4>
-    <p>Explore apartments around the UIUC campus and compare their rental prices.</p>
-</div>
-
-<div>
-    <h4>Understand Hidden Costs</h4>
-    <p>See additional expenses like utilities, parking, and other fees.</p>
-</div>
-
-<div>
-    <h4>Explore Rent Predictions</h4>
-    <p>View estimated future rent prices to help plan your housing budget.</p>
-</div>
-
+<h2>Find housing that fits your budget</h2>
+<p>Compare apartment details, room prices, and rent history around Champaign-Urbana.</p>
+<p><a href="{% url 'apartment_list' %}">Browse apartments</a></p>
 {% endblock %}

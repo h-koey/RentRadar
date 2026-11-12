@@ -13,7 +13,9 @@
 
         <p>Address: {{ apartment.street_address }}</p>
         <p>City: {{ apartment.city }}</p>
-        <p>Location: {{ apartment.location }}</p>
+        <p>Average rating: {{ apartment.average_rating }} / 5</p>
+        <p>Rent controlled: {{ apartment.rent_controlled|yesno:"Yes,No" }}</p>
+        <p>Rooms: {{ apartment.rooms.count }}</p>
 
         <a href="{% url 'apartment_detail' apartment.id %}">
             View Apartment Details
