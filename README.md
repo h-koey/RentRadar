@@ -158,6 +158,8 @@ MacOS:
 ```sh
 curl -fsSL https://ollama.com/install.sh | sh
 ```
+*Password is your Mac device's password*
+
 Install qwen model:
 ```sh
 ollama pull qwen2.5:3b
