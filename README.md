@@ -150,6 +150,15 @@ apartment. `apartment` can be either an `Apartment` instance or its database ID.
 Install [Ollama](https://ollama.com/download) and download a local model that
 supports JSON output, for example:
 
+Windows:
+```sh
+irm https://ollama.com/install.ps1 | iex
+```
+MacOS:
+```sh
+curl -fsSL https://ollama.com/install.sh | sh
+```
+Install qwen model:
 ```sh
 ollama pull qwen2.5:3b
 ```
