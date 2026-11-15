@@ -195,13 +195,15 @@ The project is currently in its initial development stage. The team is working o
 - **11/04:** Created initial Django models, views, URLs, and templates; pushed changes to GitHub.
 - **11/05:** Set up the SQLite database.
 - **11/06:** Began evaluating AI models and testing metrics. Started deployment cost analysis and planning.
+- **11/13:** Drafted the video demo script and held a team meeting to discuss task progress.
+- **11/15:** Recorded the demo video. Set up Ollama and connected the Qwen2.5:3b model to Django for AI-powered apartment evaluations. Updated the development roadmap.
 
 ### Currently In Progress
 
 - Completing Django application functionality and authorization.
-- Developing database and API functionality.
-- Evaluating models for the rent prediction feature.
-- Testing model performance and response quality.
+- Developing and refining database and API functionality.
+- Developing the rent prediction feature and evaluating possible models.
+- Testing AI response quality, accuracy, latency, and error handling.
 - Planning deployment, hosting costs, and production requirements.
 - Updating project documentation and setup instructions.
 
