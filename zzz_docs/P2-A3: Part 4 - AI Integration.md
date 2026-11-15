@@ -1,4 +1,4 @@
-## 3. Initial AI Implementation
+## Part 3. Initial AI Implementation
 
 ### 3.1. Proposed AI Feature
 
