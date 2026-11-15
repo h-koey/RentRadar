@@ -211,14 +211,18 @@ The application and its planned features are still under development.
 
 ## Project Documentation
 
-Additional documentation will be added as development progresses.
+Additional documentation is being developed and organized in the `z_documentation/` folder as the project progresses.
 
-| Document | Description |
-|---|---|
-| `README_AI.md` | AI implementation, model/technique, predictions, and evaluation |
-| `docs/project_scope.md` | Updated project scope and planned features |
-| `docs/development_roadmap.md` | Development tasks, team responsibilities, and expected completion dates |
-| `docs/testing_and_evaluation.md` | Testing results, limitations, and improvements |
+| Document | Description | Status |
+|---|---|---|
+| `00_FINAL_PROJECT_FORMAT.md` | Final project documentation outline based on the assignment requirements | Created |
+| `P2-A3: Part 1 - Product Scope.md` | Final product scope, core features, user experience, and product differentiation | Draft added; in progress |
+| Django application code | Database models, views, templates, URLs, forms, and APIs | Implemented; documentation in progress |
+| `P2-A3: Part 3 - AI Integration.md` | AI feature, model selection, workflow, integration, and reliability | Draft added; in progress |
+| Part 4 documentation | Evaluation criteria, test cases, failures, and improvements | Not yet completed |
+| `cost.txt` | Deployment approach, infrastructure, cost, scalability, and security analysis | Draft added; in progress |
+| Part 6 documentation | GitHub repository, README, AI documentation, and code quality | In progress |
+| Development roadmap | Development tasks, team responsibilities, and project progress | Added; ongoing updates |
 
 ## Team
 
