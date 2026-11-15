@@ -5,3 +5,4 @@ python-dotenv==1.2.4
 setuptools==83.0.0
 sqlparse==0.6.0
 wheel==0.47.0
+django-allauth
