@@ -151,7 +151,7 @@ Install [Ollama](https://ollama.com/download) and download a local model that
 supports JSON output, for example:
 
 ```sh
-ollama pull llama3.1
+ollama pull qwen2.5:3b
 ```
 
 When started with `python manage.py runserver`, the app starts Ollama's local
