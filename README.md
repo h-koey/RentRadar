@@ -222,7 +222,6 @@ Additional documentation is being developed and organized in the `z_documentatio
 | Part 4 documentation | Evaluation criteria, test cases, failures, and improvements | Not yet completed |
 | `cost.txt` | Deployment approach, infrastructure, cost, scalability, and security analysis | Draft added; in progress |
 | Part 6 documentation | GitHub repository, README, AI documentation, and code quality | In progress |
-| Development roadmap | Development tasks, team responsibilities, and project progress | Added; ongoing updates |
 
 ## Team
 
@@ -237,3 +236,4 @@ Future rent and utility values are estimates and may differ from actual housing 
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+
