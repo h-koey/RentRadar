@@ -2,60 +2,62 @@
 
 ### 3.1. Proposed AI Feature
 
-Our planned AI feature is an apartment evaluation system that helps users determine how well an apartment matches their housing preferences and needs.
+Our AI feature is an apartment evaluation system that helps users decide whether an apartment is a good fit for them.
 
-The system uses a language model to analyze apartment information alongside user preferences and provide a personalized evaluation. Users can also enter an additional prompt to ask about specific factors, such as apartment amenities, location, or transportation accessibility.
+The system looks at apartment details and compares them with the user's housing preferences. Based on this information, the AI provides a personalized rating and explanation. Users can also enter their own questions or prompts about specific things they care about, such as amenities, location, or access to public transportation.
 
 ### 3.2. Proposed AI Model and Technique
 
-We are currently using **Qwen2.5:3b**, a locally hosted language model accessed through **Ollama**.
+We are currently using **Qwen2.5:3b**, a language model that runs locally through **Ollama**.
 
-Our approach relies on prompt engineering rather than additional model training or fine-tuning. The task involves evaluating structured apartment information against user preferences, so we provide the model with relevant information and instructions through a carefully constructed prompt.
+Instead of training our own AI model, we use prompt engineering. This means we give the model apartment information, user preferences, and instructions on how to evaluate the apartment.
 
-We chose a locally hosted model because it allows us to experiment with AI functionality without relying on an external paid AI API. It also gives us more control over how user and apartment information is processed.
+We chose to run the model locally because it allows us to test AI features without depending on a paid external AI service. It also gives us more control over how the application handles user and apartment information.
 
 ### 3.3. Input and Output
 
 **Input:**
-- User preferences stored in their account.
-- Apartment information retrieved from the SQLite database.
+
+The AI uses three main types of information:
+
+- User preferences saved in their account.
+- Apartment details stored in our SQLite database.
 - Additional questions or instructions entered by the user.
 
 **Output:**
 
-The model returns a JSON-formatted response containing:
-- **Rating:** A score out of 5 indicating how well the apartment matches the user's preferences.
-- **Summary:** A brief overview of the apartment's suitability.
+The model returns a response in JSON format with three main parts:
+
+- **Rating:** A score out of 5 based on how well the apartment matches the user's preferences.
+- **Summary:** A short overview of the apartment.
 - **Reasoning:** An explanation of why the apartment received that rating.
 
-This structured output allows Django to process and display the AI evaluation in a consistent format.
+Using JSON makes it easier for Django to read the response and display the results in a consistent format.
 
 ### 3.4. Interaction with Django
 
-Django manages communication between the application, database, and AI model.
-
-The workflow is as follows:
+Django connects the application, database, and AI model. The process works as follows:
 
 1. The user selects an apartment and requests an AI evaluation.
-2. Django retrieves the user's preferences and the apartment information from the SQLite database.
-3. The Django view combines this information with the user's additional prompt to construct an instruction for the model.
-4. Django sends the prompt to Ollama's chat endpoint, where Qwen2.5:3b processes the request.
-5. Qwen returns a response in JSON format.
-6. Django checks whether the response contains valid JSON. If valid, the evaluation is displayed to the user. If the response is invalid or the request fails, the application displays an error message asking the user to try again.
+2. Django gets the user's saved preferences and the apartment details from the SQLite database.
+3. Django puts this information together with any additional prompt from the user.
+4. The application sends the prompt to Ollama, where Qwen2.5:3b processes it.
+5. The model sends back its evaluation in JSON format.
+6. Django checks whether the response is valid. If everything looks correct, the evaluation is shown to the user. If something goes wrong, the application displays an error message and asks the user to try again.
 
-Django's ORM is used for database operations, which helps protect against common SQL injection risks when queries are constructed properly. Django also handles the application-side input and output processing.
+Django's ORM handles database operations, while Django also takes care of processing the user's input and the model's response.
 
 ### 3.5. Initial Experimentation and Technical Feasibility
 
-We have set up Ollama locally and connected the Qwen2.5:3b model to our Django application. Our initial implementation demonstrates that Django can collect the necessary apartment and user information, send it to the model, and process its response.
+We have successfully set up Ollama locally and connected Qwen2.5:3b to our Django application. Our initial implementation shows that Django can collect apartment details and user preferences, send that information to the AI model, and receive an evaluation.
 
-We also implemented JSON validation so that the application can handle unexpected or improperly formatted model responses instead of displaying invalid results directly.
+We also added JSON validation to check the model's responses. This helps prevent invalid or incorrectly formatted results from being displayed to users.
 
-This initial prototype demonstrates the feasibility of incorporating a locally hosted language model into our Django application. We may also experiment with Qwen2.5:1b to compare performance and resource requirements.
+So far, our prototype shows that using a locally hosted AI model in our Django application is possible. We may also test Qwen2.5:1b to see how it compares in terms of response quality and computer resource usage.
 
 **Current Limitations and Future Improvements:**
 
-- AI evaluations depend on the accuracy and completeness of the apartment information stored in our database.
-- Model responses may vary in quality depending on the prompt and available information.
-- We plan to evaluate response quality, accuracy, and latency to determine whether the current model is suitable for our application.
-- We may compare different Qwen model sizes to find a balance between response quality and computational requirements.
+- The quality of the AI evaluation depends on how accurate and complete the apartment information in our database is.
+- The model may give different responses depending on the information and instructions it receives.
+- We still need to test how accurate and useful the evaluations are, as well as how long the model takes to respond.
+- We may compare different Qwen model sizes to find one that provides good results without requiring too many computer resources.
